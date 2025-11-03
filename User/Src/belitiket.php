@@ -1,16 +1,4 @@
 <?php
 include "../Connection/koneksi.php";
 
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitur beli tiket</title>
-</head>
-<body>
-    <form action="" method="get"></form>
-</body>
-</html>
+$harga;
