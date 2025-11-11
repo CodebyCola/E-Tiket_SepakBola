@@ -1,0 +1,324 @@
+.hero-text {
+  position: absolute;
+  top: 55%;
+  left: 12%;
+  transform: translateY(-50%);
+  color: white;
+}
+
+.hero-text h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 70px;
+  font-weight: bold;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero-text p {
+  font-size: 20px;
+  margin-top: 10px;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+.btn.login-btn {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #000000, #5e5e5e);
+  border-radius: 20px;
+  width: 90px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.Username {
+  margin-right: 20px;
+}
+
+.login-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  background-color: #000;
+}
+
+.login-btn:hover::before {
+  left: 100%;
+}
+
+.login-btn:active {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.1s ease;
+  transform: translateY(0.5px);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  z-index: 1;
+  top: 10px;
+}
+
+.navbar-brand img {
+  width: 120px;
+  height: 80px;
+}
+
+.nav-item a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #000000;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-item a:hover::after {
+  width: 80%;
+}
+
+.nav-item a:hover {
+  color: #000000;
+  transform: translateY(-2px);
+}
+
+.nav-item {
+  text-align: center;
+  padding: 10px;
+  display: inline-block;
+  margin-right: 30px;
+  padding: 8px 5px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-family: "Bebas Neue", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+  transform: translateY(-3px);
+}
+
+.mb-4 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 4rem;
+  color: white;
+}
+
+/* SELAMAT DATANG */
+.text-light {
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+  color: #f0f0f0;
+  text-align: justify;
+  text-emphasis: none;
+}
+
+/* TEKS PARAGRAF */
+.text-white {
+  font-family: "Arial", sans-serif;
+  font-size: 20px;
+  color: white;
+  text-align: justify;
+  text-emphasis: none;
+}
+
+.text-secondary_p {
+  font-family: "poppins", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #d3d3d3;
+  text-align: justify;
+  text-emphasis: none;
+}
+
+/* h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 32px;
+  font-weight: 600;
+  font-family: 'Bebas Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #ffffff, #000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+} */
+
+/* .col-md-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  color: #e0e0e0;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 12px;
+} */
+
+/* p {
+  text-align: center;
+} */
+
+.card-header {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 50px 40px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    0 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+button {
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(255, 255, 255);
+  transform: scale(1.03);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 14px 18px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: rgb(255, 255, 255);
+  box-shadow: 0 0 15px rgba(42, 42, 42, 0.3);
+} */
+
+/* button {
+  margin-top: 25px;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgb(0, 0, 0), rgb(129, 129, 129));
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  transform: scale(-5px);
+}
+
+button:active {
+  transform: translateY(-1px);
+} */
+
+/* p {
+  text-align: center;
+  color: #fffdfd;
+  margin-top: 25px;
+  font-size: 14px;
+} */
+
+/* a {
+  color: #949494;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+} */
+
+/* Styling Fitur Section */
+#Fiturs {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.card-container {
+  margin: 3rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.card {
+  transition: 0.4s ease-in-out;
+  cursor: default;
+}
+
+.card:hover {
+  box-shadow: 0px 10px 19px 1px rgba(128, 128, 128, 0.1);
+}
+
+/* End */
