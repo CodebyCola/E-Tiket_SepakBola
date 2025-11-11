@@ -1,6 +1,5 @@
 <?php
 include "../../Connection/koneksi.php";
-
 function test_input($data)
 {
     $data = trim($data);
@@ -9,6 +8,7 @@ function test_input($data)
     return $data;
 }
 
+session_start();
 $errMsg = ["", "", ""];
 
 if (isset($_POST["register"])) {
@@ -42,13 +42,25 @@ if (isset($_POST["register"])) {
     }
 
     if (empty(array_filter($errMsg))) {
-        echo "Akun berhasil dibuat";
-        $pass = password_hash($pass, PASSWORD_DEFAULT);
-        $stmt = $koneksi->prepare("insert into users (nama, email, password, role) values (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $username, $email, $pass, $role);
-        $stmt->execute();
-    } else {
-        echo "Akun gagal dibuat";
+    // check if username or email already exists (avoid depending on 'id' column)
+    $chk = $koneksi->prepare("SELECT 1 FROM users WHERE nama = ? OR email = ? LIMIT 1");
+        $chk->bind_param('ss', $username, $email);
+        $chk->execute();
+        $cres = $chk->get_result();
+        if ($cres && $cres->num_rows > 0) {
+            $errMsg[0] = 'Username atau email sudah terdaftar';
+        } else {
+            $passHash = password_hash($pass, PASSWORD_DEFAULT);
+            $stmt = $koneksi->prepare("INSERT INTO users (nama, email, password, role) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("ssss", $username, $email, $passHash, $role);
+            if ($stmt->execute()) {
+                // redirect to login after successful register
+                header('Location: login.php');
+                exit();
+            } else {
+                $errMsg[0] = 'Gagal membuat akun';
+            }
+        }
     }
 }
 ?>
@@ -60,25 +72,42 @@ if (isset($_POST["register"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('../../assets/images/Aset10.jpg');
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="card-header">
+        <h2>Sign Up</h2>
     <form action="" method="POST">
-        <label for="RegisUsername">Username:</label>
-        <input type="text" name="RegisUsername" id="RegisUsername">
+        <label for="RegisUsername">Username</label>
+        <input type="text" name="RegisUsername" id="RegisUsername" placeholder="Username" required>
         <span class="nameErr"><?php echo $errMsg[0] ?></span>
-        <br>
-        <label for="RegisEmail">Email:</label>
-        <input type="email" name="RegisEmail" id="RegisEmail" required>
+        
+        <label for="RegisEmail">Email</label>
+        <input type="email" name="RegisEmail" id="RegisEmail" placeholder="Email" required>
         <span class="emailErr"><?php echo $errMsg[2] ?></span>
-        <br>
-        <label for="RegisPassword">Password:</label>
-        <input type="password" name="RegisPassword" id="RegisPassword">
+        
+        <label for="RegisPassword">Password</label>
+        <input type="password" name="RegisPassword" id="RegisPassword" placeholder="Password" required>
         <span class="passErr"><?php echo $errMsg[1] ?></span>
-        <br>
-        <button type="submit" value="register" name="register">Daftar</button><br>
+        
+        <button type="submit" value="register" name="register">Daftar</button>
 
     </form>
+    <p>Sudah punya akun? <a href="login.php">Masuk</a></p>
+    </div>
 </body>
 
 </html>
