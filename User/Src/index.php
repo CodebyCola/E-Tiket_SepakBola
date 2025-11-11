@@ -119,9 +119,4 @@ session_destroy();
     <div class="container mt-3">
 </div>
 </body>
-<<<<<<< HEAD
-
 </html>
-=======
-</html>
->>>>>>> dac277d (update)
