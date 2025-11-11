@@ -3,7 +3,7 @@ include "../../Connection/koneksi.php";
 session_start();
 $name = "";
 
-if (isset($_SESSION["role"])) {
+if (!empty($_SESSION["user_id"]) || !empty($_SESSION['user_name'])) {
     header("Location: ../index.php");
     exit();
 }
@@ -13,40 +13,60 @@ if (isset($_COOKIE["remember"]) && !empty($_COOKIE["remember"])) {
 }
 
 if (isset($_POST["login"])) {
+    // basic CSRF: optional if token present
+    if (!empty($_POST['csrf_token']) && $_POST['csrf_token'] !== ($_SESSION['csrf_token'] ?? '')) {
+        die('CSRF token tidak valid');
+    }
+
     $name = $_POST["username"] ?? "";
     $email = $_POST["email"] ?? "";
     $pass = $_POST["password"] ?? "";
 
     if (empty($name) || empty($email) || empty($pass)) {
-        echo "Semua field harus diisi!";
+        $err = "Semua field harus diisi!";
     } else {
-
-
-        $sql = $koneksi->prepare("select nama, password, email, role from users where nama = ?");
-        $sql->bind_param("s", $name);
-        $sql->execute();
-        $result = $sql->get_result();
+        // Attempt to fetch id if present; if not, fall back to columns without id
+        try {
+            $sql = $koneksi->prepare("SELECT id, nama, password, email, role FROM users WHERE nama = ? LIMIT 1");
+            $sql->bind_param("s", $name);
+            $sql->execute();
+            $result = $sql->get_result();
+        } catch (Exception $e) {
+            // fallback: users table may not have id column
+            $sql = $koneksi->prepare("SELECT nama, password, email, role FROM users WHERE nama = ? LIMIT 1");
+            $sql->bind_param("s", $name);
+            $sql->execute();
+            $result = $sql->get_result();
+        }
 
         if ($result && $result->num_rows > 0) {
             $row = $result->fetch_assoc();
 
             if ($row["email"] != $email) {
-                echo "email tidak cocok!";
+                $err = "Email tidak cocok!";
             } else {
                 if (password_verify($pass, $row["password"])) {
-                    echo "login berhasil!";
+                    // successful login
                     $_SESSION["role"] = $row["role"];
-                    if (isset($_POST["remember"])) {
-                        setcookie("remember", "$name", time() + 60, '/');
+                    // set user id if available, otherwise set username only
+                    if (isset($row['id'])) {
+                        $_SESSION['user_id'] = $row['id'];
+                    } else {
+                        $_SESSION['user_id'] = null;
                     }
-                    header("Location: ../index.php");
+                    $_SESSION['user_name'] = $row['nama'];
+                    if (isset($_POST["remember"])) {
+                        // set httponly cookie for username (short-lived example)
+                        setcookie("remember", $name, time() + 3600, "/", "", false, true);
+                    }
+                    header("location: ../index.php");
                     exit();
                 } else {
-                    echo "Password salah!";
+                    $err = "Password salah!";
                 }
             }
         } else {
-            echo "User tidak ditemukan!";
+            $err = "User tidak ditemukan!";
         }
     }
 }
@@ -55,29 +75,47 @@ if (isset($_POST["login"])) {
 
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('../../assets/images/Aset10.jpg');
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="card-header">
+        <h2>Login</h2>
     <form action="" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" value="<?php echo htmlspecialchars($name); ?>">
-        <br>
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
-        <br>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" placeholder="Username" value="<?php echo htmlspecialchars($name); ?>">
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Email" required>
+        
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Password">
+        
+        <div>
         <input type="checkbox" id="remember" name="remember" <?php if(isset($_COOKIE["remember"])) echo "checked";?>>
         <label for="remember">Ingat Pengguna?</label>
+        </div>
         <br>
-        <button type="submit" value="login" name="login">Masuk</button><br>
+        <button type="submit" value="login" name="login">Masuk</button>
+        <p>Belum punya akun? <a href="register.php">Sign Up</a></p>
     </form>
+    </div>
 </body>
 
 </html>
