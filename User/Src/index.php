@@ -1,7 +1,15 @@
 <?php
 include __DIR__ . "/../Connection/koneksi.php";
+date_default_timezone_set('Asia/Jakarta');
+
 session_start();
 session_destroy();
+
+$sql = $koneksi->prepare("select nama, komentar, rating, date_format(tanggal, '%d-%m-%y') as tanggal from reviews where status = 'disetujui' limit 3");
+$sql->execute();
+
+$result = $sql->get_result();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,15 +22,6 @@ session_destroy();
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
-<style>
-  #Hero {
-    background-image: url('../assets/images/Aset10.jpg');
-    width: 100%;
-    height: 90vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-</style>
 
 <body>
   <nav class="navbar navbar-expand-lg bg-body-secondary">
@@ -116,7 +115,57 @@ session_destroy();
 
 
 
-    <div class="container mt-3">
-</div>
+  <section id="Reviews">
+    <h3>Trusted by Football Fans Everywhere.</h3>
+
+    <div class="card-review-container">
+      <?php
+      while ($data = $result->fetch_assoc()) {
+        $dt = DateTime::createFromFormat('d-m-y', $data['tanggal']);
+      ?>
+        <div class="card text-bg-light mb-3" style="max-width: 18rem;">
+          <div class="card-body">
+            <div class="ratings">
+              <h5><?= $data['rating'] ?></h5>
+              <img src="../Assets/images/icon/star.svg" alt="" width="50px" height="50px">
+            </div>
+            <p class="card-text"><?= $data['komentar'] ?></p>
+            <p class="card-text"><small class="text-body-secondary"><?= $data['nama'] ?>, <?= $dt->format('d F Y') ?></small></p>
+          </div>
+        </div>
+      <?php
+      }
+      ?>
+
+      <div class="card text-bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+          <div class="ratings">
+            <h5>4</h5>
+            <img src="../Assets/images/icon/star.svg" alt="" width="50px" height="50px">
+          </div>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card`s content.</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+
+      <div class="card text-bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+          <div class="ratings">
+            <h5>3</h5>
+            <img src="../Assets/images/icon/star.svg" alt="" width="50px" height="50px">
+          </div>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card`s content.</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+
+
+
+    </div>
+  </section>
+
+  <div class="container mt-3">
+  </div>
 </body>
+
 </html>
