@@ -5,7 +5,7 @@ date_default_timezone_set('Asia/Jakarta');
 session_start();
 session_destroy();
 
-$sql = $koneksi->prepare("select nama, komentar, rating, date_format(tanggal, '%d-%m-%y') as tanggal from reviews where status = 'disetujui' limit 3");
+$sql = $koneksi->prepare("select nama, komentar, rating, tanggal from reviews where status = 'disetujui' limit 3");
 $sql->execute();
 
 $result = $sql->get_result();
@@ -121,7 +121,6 @@ $result = $sql->get_result();
     <div class="card-review-container">
       <?php
       while ($data = $result->fetch_assoc()) {
-        $dt = DateTime::createFromFormat('d-m-y', $data['tanggal']);
       ?>
         <div class="card text-bg-light mb-3" style="max-width: 18rem;">
           <div class="card-body">
@@ -130,7 +129,7 @@ $result = $sql->get_result();
               <img src="../Assets/images/icon/star.svg" alt="" width="50px" height="50px">
             </div>
             <p class="card-text"><?= $data['komentar'] ?></p>
-            <p class="card-text"><small class="text-body-secondary"><?= $data['nama'] ?>, <?= $dt->format('d F Y') ?></small></p>
+            <p class="card-text"><small class="text-body-secondary"><?= $data['nama'] ?>, <?= date('d F Y', strtotime($data['tanggal'])) ?></small></p>
           </div>
         </div>
       <?php
