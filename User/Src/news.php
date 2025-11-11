@@ -43,10 +43,10 @@ session_destroy();
                         <a class="nav-link" href="pertandingan.php">Matches</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="news.php">News</a>
+                        <a class="nav-link active" href="news.php">News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="riwayat.php">History</a>
+                        <a class="nav-link" href="riwayat.php">History</a>
                     </li>
                 </ul>
             </div>
