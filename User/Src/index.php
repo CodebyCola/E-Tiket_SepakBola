@@ -112,9 +112,6 @@ $result = $sql->get_result();
     </div>
   </section>
 
-
-
-
   <section id="Reviews">
     <h3>Trusted by Football Fans Everywhere.</h3>
 
