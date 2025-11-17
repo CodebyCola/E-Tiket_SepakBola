@@ -1,7 +1,5 @@
 <?php
 include __DIR__ . "/../Connection/koneksi.php";
-date_default_timezone_set('Asia/Jakarta');
-
 session_start();
 session_destroy();
 
@@ -27,8 +25,7 @@ $result = $sql->get_result();
   <nav class="navbar navbar-expand-lg bg-body-secondary">
     <div class="container-fluid">
       <a class="navbar-brand d-flex align-items-center" href="#">
-        <div class="logo-container"></div>
-        <img src="../assets/images/PremiereLeauge.png" alt="logo" width="30" height="30" class="me-2">
+        <img src="../Assets/images/priemer-league-icon.jpg" alt="logo" width="120" height="100">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -154,14 +151,9 @@ $result = $sql->get_result();
           <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
         </div>
       </div>
-
-
-
     </div>
   </section>
 
-  <div class="container mt-3">
-  </div>
 </body>
 
 </html>
