@@ -13,10 +13,6 @@ if (isset($_COOKIE["remember"]) && !empty($_COOKIE["remember"])) {
 }
 
 if (isset($_POST["login"])) {
-    // basic CSRF: optional if token present
-    if (!empty($_POST['csrf_token']) && $_POST['csrf_token'] !== ($_SESSION['csrf_token'] ?? '')) {
-        die('CSRF token tidak valid');
-    }
 
     $name = $_POST["username"] ?? "";
     $email = $_POST["email"] ?? "";
@@ -54,9 +50,8 @@ if (isset($_POST["login"])) {
                     } else {
                         $_SESSION['user_id'] = null;
                     }
-                    $_SESSION['user_name'] = $row['nama'];
+                    $_SESSION['username'] = $row['nama'];
                     if (isset($_POST["remember"])) {
-                        // set httponly cookie for username (short-lived example)
                         setcookie("remember", $name, time() + 3600, "/", "", false, true);
                     }
                     header("location: ../index.php");
@@ -75,14 +70,15 @@ if (isset($_POST["login"])) {
 
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../Assets/Style/authstyle.css">
     <style>
         body {
-            background-image: url('../../assets/images/Aset10.jpg');
+            background-image: url('../../Assets/images/Aset10.jpg');
             width: 100%;
             height: 100vh;
             background-size: cover;
@@ -97,24 +93,24 @@ if (isset($_POST["login"])) {
 <body>
     <div class="card-header">
         <h2>Login</h2>
-    <form action="" method="POST">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" placeholder="Username" value="<?php echo htmlspecialchars($name); ?>">
+        <form action="" method="POST">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Username" value="<?php echo htmlspecialchars($name); ?>">
 
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="Email" required>
-        
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" placeholder="Password">
-        
-        <div>
-        <input type="checkbox" id="remember" name="remember" <?php if(isset($_COOKIE["remember"])) echo "checked";?>>
-        <label for="remember">Ingat Pengguna?</label>
-        </div>
-        <br>
-        <button type="submit" value="login" name="login">Masuk</button>
-        <p>Belum punya akun? <a href="register.php">Sign Up</a></p>
-    </form>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Email" required>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Password">
+
+            <div>
+                <input type="checkbox" id="remember" name="remember" <?php if (isset($_COOKIE["remember"])) echo "checked"; ?>>
+                <label for="remember">Ingat Pengguna?</label>
+            </div>
+            <br>
+            <button type="submit" value="login" name="login">Masuk</button>
+            <p>Belum punya akun? <a href="register.php">Sign Up</a></p>
+        </form>
     </div>
 </body>
 

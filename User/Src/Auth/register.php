@@ -42,8 +42,8 @@ if (isset($_POST["register"])) {
     }
 
     if (empty(array_filter($errMsg))) {
-    // check if username or email already exists (avoid depending on 'id' column)
-    $chk = $koneksi->prepare("SELECT 1 FROM users WHERE nama = ? OR email = ? LIMIT 1");
+        // check if username or email already exists (avoid depending on 'id' column)
+        $chk = $koneksi->prepare("SELECT 1 FROM users WHERE nama = ? OR email = ? LIMIT 1");
         $chk->bind_param('ss', $username, $email);
         $chk->execute();
         $cres = $chk->get_result();
@@ -72,7 +72,7 @@ if (isset($_POST["register"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../Assets/Style/authstyle.css">
     <style>
         body {
             background-image: url('../../assets/images/Aset10.jpg');
@@ -90,23 +90,23 @@ if (isset($_POST["register"])) {
 <body>
     <div class="card-header">
         <h2>Sign Up</h2>
-    <form action="" method="POST">
-        <label for="RegisUsername">Username</label>
-        <input type="text" name="RegisUsername" id="RegisUsername" placeholder="Username" required>
-        <span class="nameErr"><?php echo $errMsg[0] ?></span>
-        
-        <label for="RegisEmail">Email</label>
-        <input type="email" name="RegisEmail" id="RegisEmail" placeholder="Email" required>
-        <span class="emailErr"><?php echo $errMsg[2] ?></span>
-        
-        <label for="RegisPassword">Password</label>
-        <input type="password" name="RegisPassword" id="RegisPassword" placeholder="Password" required>
-        <span class="passErr"><?php echo $errMsg[1] ?></span>
-        
-        <button type="submit" value="register" name="register">Daftar</button>
+        <form action="" method="POST">
+            <label for="RegisUsername">Username</label>
+            <input type="text" name="RegisUsername" id="RegisUsername" placeholder="Username" required>
+            <span class="nameErr"><?php echo $errMsg[0] ?></span>
 
-    </form>
-    <p>Sudah punya akun? <a href="login.php">Masuk</a></p>
+            <label for="RegisEmail">Email</label>
+            <input type="email" name="RegisEmail" id="RegisEmail" placeholder="Email" required>
+            <span class="emailErr"><?php echo $errMsg[2] ?></span>
+
+            <label for="RegisPassword">Password</label>
+            <input type="password" name="RegisPassword" id="RegisPassword" placeholder="Password" required>
+            <span class="passErr"><?php echo $errMsg[1] ?></span>
+
+            <button type="submit" value="register" name="register">Daftar</button>
+
+        </form>
+        <p>Sudah punya akun? <a href="login.php">Masuk</a></p>
     </div>
 </body>
 
