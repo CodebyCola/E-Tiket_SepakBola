@@ -1,9 +1,8 @@
 <?php
 include __DIR__ . "/../Connection/koneksi.php";
 session_start();
-// session_destroy();
 
-$sql = $koneksi->prepare("select nama, komentar, rating, tanggal from reviews where status = 'disetujui' limit 3");
+$sql = $koneksi->prepare("SELECT nama, komentar, rating, tanggal from reviews WHERE status = 'disetujui' LIMIT 3");
 $sql->execute();
 
 $result = $sql->get_result();
@@ -42,22 +41,26 @@ $result = $sql->get_result();
             <a class="nav-link" href="news.php">News</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="riwayat.php">History</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="tiket.php">Buy Ticket</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="profile.php">Profile</a>
-          </li>
+
         </ul>
       </div>
     </div>
-    <div class="d-flex">
+    <div class="profile-menu d-flex">
       <?php
       if (isset($_SESSION['role'])) {
       ?>
-        <h1 class="Username"><?= $_SESSION['username'] ?></h1>
+        <div class="profile-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <?= $_SESSION['username'] ?>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="profile.php">My Profile</a></li>
+            <li><a class="dropdown-item" href="riwayat.php">Purchase History</a></li>
+            <li><a class="dropdown-item" href="Auth/logout.php">Logout</a></li>
+          </ul>
+        </div>
 
       <?php
       } else {
@@ -86,7 +89,7 @@ $result = $sql->get_result();
       <div class="card" style="width: 18rem;">
         <div class="card-body">
           <img src="../Assets/images/icon/shield-check.svg" alt="">
-          <h5 class="card-title">Aman & Resmi</h5>
+          <h5 class="card-title mb-3 ">Aman & Resmi</h5>
           <p class="card-text">Semua tiket yang dijual terverifikasi langsung oleh pihak klub dan penyelenggara. Tidak ada tiket palsu, tidak ada perantara, hanya transaksi yang benar-benar sah.</p>
         </div>
       </div>
@@ -94,15 +97,15 @@ $result = $sql->get_result();
       <div class="card" style="width: 18rem;">
         <div class="card-body">
           <img src="../Assets/images/icon/zap.svg" alt="">
-          <h5 class="card-title">Pemesanan Cepat</h5>
-          <p class="card-text">Proses pemesanan berlangsung dalam hitungan detik. Cukup pilih pertandingan, pilih tempat duduk, dan lakukan pembayaran, tiketmu langsung siap.</p>
+          <h5 class="card-title mb-3">Pemesanan Cepat</h5>
+          <p class="card-text">Proses pemesanan berlangsung dalam hitungan detik. Cukup pilih pertandingan,Isi form, dan lakukan pembayaran, tiketmu langsung siap.</p>
         </div>
       </div>
 
       <div class="card" style="width: 18rem;">
         <div class="card-body">
           <img src="../Assets/images/icon/ticket.svg" alt="">
-          <h5 class="card-title">Ticket Digital</h5>
+          <h5 class="card-title mb-3">Ticket Digital</h5>
           <p class="card-text">Setelah pembayaran berhasil, tiket digital akan otomatis tersedia dan dapat diunduh melalui menu Riwayat Pemesanan.</p>
         </div>
       </div>
@@ -110,7 +113,7 @@ $result = $sql->get_result();
       <div class="card" style="width: 18rem;">
         <div class="card-body">
           <img src="../Assets/images/icon/message-square-dot.svg" alt="">
-          <h5 class="card-title">Dukungan 24 jam</h5>
+          <h5 class="card-title mb-3">Dukungan 24 jam</h5>
           <p class="card-text">Tim layanan pelanggan kami siap membantu kapan pun kamu butuh mulai dari kendala pembayaran sampai informasi seputar pertandingan.</p>
         </div>
       </div>
@@ -195,6 +198,7 @@ $result = $sql->get_result();
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 
 </html>

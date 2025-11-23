@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		$stmt = $koneksi->prepare("UPDATE pertandingan set stok_tiket = ? WHERE id_match = ?");
 		$stmt->bind_param('ii', $sisastok, $id_match);
 		$stmt->execute();
-		header("Location: index.php");
+		header("Location: riwayat.php");
 		exit();
 	} else {
 		die("Purchase Failed!");
@@ -108,7 +108,7 @@ $matchweek = floor((date("j", strtotime($data['tanggal'])) - 1) / 7) + 1;
 				</div>
 				<div class="match-detail">
 					<p>Matchweek <?= $matchweek ?></p>
-					<p><?= date("D d M", strtotime($data['tanggal'])) ?> • <?= $data['lokasi']; ?></p>
+					<p><?= date("d M Y", strtotime($data['tanggal'])) ?> • <?= $data['lokasi']; ?></p>
 					<p style="font-size: 12px;"><?= $data['home_name'] ?> vs <?= $data['away_name'] ?> | Season 2025/2026 | Premier League</p>
 
 					<a href="pertandingan.php"><i class="bi bi-list-ul"></i> All Matches</a>

@@ -64,10 +64,6 @@
   margin-right: 20px;
 }
 
-.Username {
-  margin-right: 20px;
-}
-
 .login-btn::before {
   content: "";
   position: absolute;
@@ -134,6 +130,7 @@
 }
 
 .nav-item {
+  position: relative;
   text-align: center;
   padding: 10px;
   display: inline-block;
@@ -150,17 +147,6 @@
   transform: translateY(-3px);
 }
 
-.hero {
-  position: relative;
-  height: 600px;
-  background-image: url("../images/Aset10.jpg");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  color: white;
-}
-
 .hero-content {
   max-width: 800px;
   padding: 0 20px;
@@ -171,34 +157,6 @@
   font-family: "Bebas Neue", sans-serif;
   font-size: 4rem;
   color: white;
-}
-
-/* SELAMAT DATANG */
-.text-light {
-  font-family: "Arial", sans-serif;
-  font-weight: bold;
-  font-size: 50px;
-  color: #f0f0f0;
-  text-align: justify;
-  text-emphasis: none;
-}
-
-/* TEKS PARAGRAF */
-.text-white {
-  font-family: "Arial", sans-serif;
-  font-size: 20px;
-  color: white;
-  text-align: justify;
-  text-emphasis: none;
-}
-
-.text-secondary_p {
-  font-family: "poppins", sans-serif;
-  font-size: 20px;
-  font-weight: bold;
-  color: #d3d3d3;
-  text-align: justify;
-  text-emphasis: none;
 }
 
 /* Styling Fitur Section */
@@ -308,3 +266,37 @@
   font-size: 0.9rem;
 }
 /* End */
+
+/* Dropdown Profile */
+.profile-menu {
+  position: relative;
+  text-align: center;
+  padding: 10px;
+  display: inline-block;
+  /* padding: 8px 5rem; */
+  color: #000000a8;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-family: "Bebas Neue", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.profile-item.dropdown {
+  margin-right: 2rem;
+}
+
+.profile-item a:hover {
+  color: #000;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+  content: none !important;
+}
+
+.dropdown-menu {
+  left: auto !important;
+  right: 0 !important;
+  transform: translateX(26%) !important;
+}
+/* END */

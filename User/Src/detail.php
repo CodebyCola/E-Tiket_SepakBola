@@ -59,8 +59,8 @@ $isFinished = $match['skor_home'] !== null && $match['skor_away'] !== null;
 </head>
 
 <body>
-
   <div class="match-header">
+    <a href="pertandingan.php" class="back-btn">X</a>
 
     <div class="team-box home">
       <div class="logo">
@@ -101,7 +101,7 @@ $isFinished = $match['skor_home'] !== null && $match['skor_away'] !== null;
       </div>
       <div class="text">Last Time<br>Out</div>
     </div>
-  </div>>
+  </div>
 
   <?php if ($match['stok_tiket'] > 0): ?>
     <div class="ticket-section">

@@ -61,22 +61,25 @@ if ($month && $week) {
                         <a class="nav-link" href="news.php">News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="riwayat.php">History</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="tiket.php">Buy Ticket</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="profile.php">Profile</a>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="d-flex">
+        <div class="profile-menu d-flex">
             <?php
             if (isset($_SESSION['role'])) {
             ?>
-                <h1 class="Username"><?= $_SESSION['username'] ?></h1>
+                <div class="profile-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <?= $_SESSION['username'] ?>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="profile.php">My Profile</a></li>
+                        <li><a class="dropdown-item" href="riwayat.php">Purchase History</a></li>
+                        <li><a class="dropdown-item" href="Auth/logout.php">Logout</a></li>
+                    </ul>
+                </div>
 
             <?php
             } else {
