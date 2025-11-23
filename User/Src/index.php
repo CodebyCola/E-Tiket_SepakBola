@@ -15,7 +15,7 @@ $result = $sql->get_result();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beranda</title>
+  <title>HomePage</title>
   <link rel="stylesheet" href="../Assets/Style/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -47,6 +47,9 @@ $result = $sql->get_result();
           <li class="nav-item">
             <a class="nav-link" href="tiket.php">Buy Ticket</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="profile.php">Profile</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -66,9 +69,12 @@ $result = $sql->get_result();
     </div>
   </nav>
 
-  <section id="Hero">
-    <div class="hero text d-flex flex-column justify-content-center align-items-center" style="height: 80vh;">
-      <h1 class="text-light">SELAMAT DATANG DI PREMIER LEAGUE</h1>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-tag"><a href="tiket.php">Buy ur ticket!</a>
+      </div>
+      <h1>Ready to watch your favorite game? Get your tickets now!</h1>
+      <p>Watch your favorite club without any hassle!</p>
     </div>
   </section>
 
@@ -156,6 +162,38 @@ $result = $sql->get_result();
       </div>
     </div>
   </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>More</h4>
+        <ul>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Media</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Premier League. All rights reserved.</p>
+    </div>
+  </footer>
 
 </body>
 

@@ -49,7 +49,7 @@ $result = $stmt->get_result();
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="pertandingan.php">Matches</a>
@@ -62,6 +62,9 @@ $result = $stmt->get_result();
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="tiket.php">Buy Ticket</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="profile.php">Profile</a>
                     </li>
                 </ul>
             </div>
