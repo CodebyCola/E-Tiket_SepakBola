@@ -1,0 +1,157 @@
+body {
+  background: linear-gradient(135deg, #2e2e2e, #1c1c1c);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+#main-ticket {
+  padding: 2rem 2rem 0 1rem;
+}
+
+/* Search bar */
+.search-container {
+  position: relative;
+  width: 100%;
+  padding: 0 2rem 1rem 1rem;
+}
+
+#search {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #111;
+  color: white;
+}
+
+#search:focus {
+  border-color: #fff;
+  outline: none;
+}
+
+.ticket-card {
+  display: flex;
+  padding: 16px;
+  gap: 16px;
+  align-items: center;
+  transition: 0.3s ease;
+  border-radius: 14px;
+}
+
+.match-card {
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.match-card.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.35s ease-out, transform 0.35s ease-out,
+    scale 0.4s ease-in;
+}
+
+.match-card:hover {
+  scale: 1.01;
+}
+
+/* Thumbnail kiri */
+.thumbnail {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
+}
+
+.thumbnail::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+.thumbnail * {
+  z-index: 2;
+}
+
+.logo-blur-left,
+.logo-blur-right {
+  position: absolute;
+  opacity: 0.62;
+  height: 130px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-blur-left {
+  left: 12px;
+  top: 12px;
+}
+
+.logo-blur-right {
+  right: 12px;
+  bottom: 12px;
+}
+
+.vs {
+  position: absolute;
+  font-size: 48px;
+  font-weight: bold;
+  opacity: 0.9;
+  color: white;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+.date-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+/* Info tiket */
+.ticket-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+.ticket-info h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.ticket-info span {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.buy-btn {
+  margin-top: 8px;
+  padding: 8px 14px;
+  background: #212529;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  width: fit-content;
+  transition: 0.25s ease;
+  box-shadow: 0 0 8px rgba(16, 16, 16, 0.45);
+}
+
+.buy-btn:hover {
+  background: #000;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(25, 24, 24, 0.6);
+}

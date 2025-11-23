@@ -9,7 +9,18 @@ function test_input($data)
 }
 
 session_start();
-$errMsg = ["", "", ""];
+
+$err = [
+    "username" => "",
+    "email" => "",
+    "password" => "",
+    "global" => ""
+];
+
+if (!empty($_SESSION["register_err"])) {
+    $err = $_SESSION["register_err"];
+    unset($_SESSION["register_err"]);
+}
 
 if (isset($_POST["register"])) {
     $username = test_input($_POST["RegisUsername"]);
@@ -17,52 +28,56 @@ if (isset($_POST["register"])) {
     $pass = test_input($_POST["RegisPassword"]);
     $role = "user";
 
-    if (!empty($username)) {
-        if (strlen($username) < 4) {
-            $errMsg[0] = "Nama harus mengandung setidaknya 4 karakter!";
-        } else if (!preg_match("/^[a-zA-Z0-9_]+$/", $username)) {
-            $errMsg[0] = "Nama hanya boleh berisi huruf, angka, dan underscore.";
-        }
-    } else {
-        $errMsg[0] = "Nama wajib diisi!";
+    if (empty($username)) {
+        $err["username"] = "Name is required!";
+    } else if (strlen($username) < 4) {
+        $err["username"] = "Name must contain at least 4 characters!";
+    } else if (!preg_match("/^[a-zA-Z0-9_]+$/", $username)) {
+        $err["username"] = "Letters, numbers, and underscores only.";
     }
 
-    if (!empty($pass)) {
-        if (strlen($pass) < 8) {
-            $errMsg[1] = "Password harus mengandung setidaknya 8 karakter!";
-        } else if (!preg_match("/^[a-zA-Z0-9]+$/", $pass)) {
-            $errMsg[1] = "Password mengandung karakter ilegal!";
-        }
-    } else {
-        $errMsg[1] = "Password wajib diisi!";
+    if (empty($pass)) {
+        $err["password"] = "Password is required!";
+    } else if (strlen($pass) < 8) {
+        $err["password"] = "Password must contain at least 8 characters!";
+    } else if (!preg_match("/^[a-zA-Z0-9]+$/", $pass)) {
+        $err["password"] = "Password contains illegal characters!";
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errMsg[2] = "format email tidak valid!";
+        $err["email"] = "Invalid email format!";
     }
 
-    if (empty(array_filter($errMsg))) {
-        // check if username or email already exists (avoid depending on 'id' column)
+    if (!empty($err["username"]) || !empty($err["password"]) || !empty($err["email"]) || !empty($err["global"])) {
+        $_SESSION["register_err"] = $err;
+        header("Location: register.php");
+        exit();
+    }
+
+    if (empty($err["username"]) && empty($err["password"]) && empty($err["email"])) {
         $chk = $koneksi->prepare("SELECT 1 FROM users WHERE nama = ? OR email = ? LIMIT 1");
         $chk->bind_param('ss', $username, $email);
         $chk->execute();
         $cres = $chk->get_result();
+
         if ($cres && $cres->num_rows > 0) {
-            $errMsg[0] = 'Username atau email sudah terdaftar';
+            $err["global"] = "Username or email already registered!";
         } else {
             $passHash = password_hash($pass, PASSWORD_DEFAULT);
             $stmt = $koneksi->prepare("INSERT INTO users (nama, email, password, role) VALUES (?, ?, ?, ?)");
             $stmt->bind_param("ssss", $username, $email, $passHash, $role);
             if ($stmt->execute()) {
-                // redirect to login after successful register
                 header('Location: login.php');
                 exit();
             } else {
-                $errMsg[0] = 'Gagal membuat akun';
+                $err["global"] = "Failed to create account";
             }
         }
     }
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -73,40 +88,38 @@ if (isset($_POST["register"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="../../Assets/Style/authstyle.css">
-    <style>
-        body {
-            background-image: url('../../assets/images/Aset10.jpg');
-            width: 100%;
-            height: 100vh;
-            background-size: cover;
-            background-repeat: no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
 </head>
 
-<body>
+<body style="background-image: url('../../assets/images/Aset10.jpg')">
     <div class="card-header">
         <h2>Sign Up</h2>
+        <a class="btn-back" href="../index.php">
+            Back
+        </a>
+        <?php if (!empty($err["global"])): ?>
+
+            <div class="error-box">
+                <?= $err["global"] ?>
+            </div>
+        <?php endif; ?>
+
         <form action="" method="POST">
             <label for="RegisUsername">Username</label>
             <input type="text" name="RegisUsername" id="RegisUsername" placeholder="Username" required>
-            <span class="nameErr"><?php echo $errMsg[0] ?></span>
+            <span class="Err"><?= $err["username"] ?></span>
 
             <label for="RegisEmail">Email</label>
             <input type="email" name="RegisEmail" id="RegisEmail" placeholder="Email" required>
-            <span class="emailErr"><?php echo $errMsg[2] ?></span>
+            <span class="Err"><?= $err["email"] ?></span>
 
             <label for="RegisPassword">Password</label>
             <input type="password" name="RegisPassword" id="RegisPassword" placeholder="Password" required>
-            <span class="passErr"><?php echo $errMsg[1] ?></span>
+            <span class="Err"><?= $err["password"] ?></span>
 
-            <button type="submit" value="register" name="register">Daftar</button>
+            <button type="submit" value="register" name="register">Sign Up</button>
 
         </form>
-        <p>Sudah punya akun? <a href="login.php">Masuk</a></p>
+        <p>Already have an account? <a href="login.php">Login</a></p>
     </div>
 </body>
 

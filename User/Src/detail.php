@@ -8,12 +8,13 @@ if (!isset($_GET['id_match'])) {
 
 $id = $_GET['id_match'];
 
-// Query lengkap join pertandingan + teams + stats + stok tiket
 $stmt = $koneksi->prepare(" SELECT p.*,
            th.nama_team AS home_name,
            th.logo_team AS home_logo,
+           th.primary_color as primary_color,
            ta.nama_team AS away_name,
            ta.logo_team AS away_logo,
+          ta.secondary_color as secondary_color,
 
            sh.league_position AS home_pos,
            sh.played AS home_played,
@@ -90,9 +91,17 @@ $isFinished = $match['skor_home'] !== null && $match['skor_away'] !== null;
 
     <div class="date">
       <?= date("D d M", strtotime($match['tanggal'])) ?> •
-      <?= htmlspecialchars($match['lokasi']) ?>
+      <?= $match['lokasi'] ?>
     </div>
-  </div>
+
+    <div class="last-time-out">
+      <div class="circle">
+        <div class="half left" style="background: <?= $match['primary_color']; ?>"></div>
+        <div class="half right" style="background: <?= $match['secondary_color']; ?>"></div>
+      </div>
+      <div class="text">Last Time<br>Out</div>
+    </div>
+  </div>>
 
   <?php if ($match['stok_tiket'] > 0): ?>
     <div class="ticket-section">
