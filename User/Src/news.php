@@ -1,7 +1,7 @@
 <?php
 include __DIR__ . "/../Connection/koneksi.php";
 session_start();
-
+session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,8 +9,8 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda</title>
-    <link rel="stylesheet" href="../Assets/Style/style.css">
+    <title>News</title>
+    <link rel="stylesheet" href="../Assets/Style/berita.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
@@ -19,6 +19,7 @@ session_start();
     <nav class="navbar navbar-expand-lg bg-body-secondary">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="#">
+                <div class="logo-container"></div>
                 <img src="../Assets/images/priemer-league-icon.jpg" alt="logo" width="120" height="100">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +40,10 @@ session_start();
                         <a class="nav-link" href="riwayat.php">History</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tiket.php">Buy Ticket</a>
+                    <a class="nav-link" href="tiket.php">Buy Ticket</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="profile.php">Profile</a>
                     </li>
                 </ul>
             </div>
@@ -59,11 +63,241 @@ session_start();
             ?>
         </div>
     </nav>
-    <section id="Hero">
-        <div class="hero text d-flex flex-column justify-content-center align-items-center" style="height: 80vh;">
-            <h1 class="text-light">SELAMAT DATANG DI PREMIER LEAGUE</h1>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h2 class="section-title">Latest News & Features</h2>
+
+            <!-- Featured Article -->
+            <article class="featured-article">
+                <div class="article-image">
+                    <img src="../assets/images/Aset2.webp" alt="Featured News">
+
+                </div>
+                <div class="article-content">
+                    <h3 class="article-title">Ini Dia 20 Tim yang Akan bertanding di Premiere Leaugue Musim Ini</h3>
+                    <span class="article-date">19 November 2025</span>
+                </div>
+            </article>
+
+            <!-- News Grid -->
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="../assets/images/Aset9.jpg" alt="News">
+
+                    </div>
+                    <div class="news-content">
+                        <h4 class="news-title">Pemain Bintang Dikaitkan dengan Transfer Besar</h4>
+                        <p class="news-excerpt">Rumor transfer terbaru menunjukkan minat serius dari klub papan atas...</p>
+                        <span class="news-date">18 November 2025</span>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="../assets/images/Aset8.webp" alt="News">
+
+                    </div>
+                    <div class="news-content">
+                        <h4 class="news-title">Pelatih Berbicara Tentang Strategi Tim</h4>
+                        <p class="news-excerpt">Dalam wawancara eksklusif, pelatih membahas rencana untuk pertandingan mendatang...</p>
+                        <span class="news-date">18 November 2025</span>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="../assets/images/Aset7.webp" alt="News">
+
+                    </div>
+                    <div class="news-content">
+                        <h4 class="news-title">Lima Moment Terbaik Bulan Ini</h4>
+                        <p class="news-excerpt">Melihat kembali aksi-aksi spektakuler yang terjadi sepanjang bulan...</p>
+                        <span class="news-date">17 November 2025</span>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="../assets/images/Aset1.webp" alt="News">
+
+                    </div>
+                    <div class="news-content">
+                        <h4 class="news-title">Statistik Pemain Terbaik Pekan Ini</h4>
+                        <p class="news-excerpt">Analisis mendalam tentang performa luar biasa dari pemain kunci...</p>
+                        <span class="news-date">17 November 2025</span>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="../assets/images/Aset6.webp" alt="News">
+
+                    </div>
+                    <div class="news-content">
+                        <h4 class="news-title">Preview: Pertandingan Besar Akhir Pekan</h4>
+                        <p class="news-excerpt">Semua yang perlu Anda ketahui sebelum big match akhir pekan ini...</p>
+                        <span class="news-date">16 November 2025</span>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="../assets/images/Aset3.webp" alt="News">
+
+                    </div>
+                    <div class="news-content">
+                        <h4 class="news-title">Tips Fantasy Premier League Terbaik</h4>
+                        <p class="news-excerpt">Rekomendasi pemain dan strategi untuk memaksimalkan poin Anda...</p>
+                        <span class="news-date">16 November 2025</span>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="../assets/images/Aset13.webp" alt="News">
+
+                    </div>
+                    <div class="news-content">
+                        <h4 class="news-title">Krisis Cedera di Chelsea</h4>
+                        <p class="news-excerpt">Selain Palmer, Chelsea juga sedang menghadapi masalah cedera lainnya...</p>
+                        <span class="news-date">16 November 2025</span>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="../assets/images/Aset3.webp" alt="News">
+
+                    </div>
+                    <div class="news-content">
+                        <h4 class="news-title">Tendangan Bebas yang Menarik di EPL</h4>
+                        <p class="news-excerpt">Di pekan ke-11 EPL 2025/2026, tercatat ada beberapa gol dari tendangan bebas yang spektakuler.</p>
+                        <span class="news-date">16 November 2025</span>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="../assets/images/Aset15.webp" alt="News">
+
+                    </div>
+                    <div class="news-content">
+                        <h4 class="news-title">Hasil dan Klasemen Pekan Terbaru</h4>
+                        <p class="news-excerpt">Liverpool mendapat kekalahan mengejutkan di kandang menurut update klasemen terakhir.</p>
+                        <span class="news-date">16 November 2025</span>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="../assets/images/Aset14.webp" alt="News">
+
+                    </div>
+                    <div class="news-content">
+                        <h4 class="news-title">Laga Derby London Utara Pekan Depan</h4>
+                        <p class="news-excerpt">Pekan ini ada “Derby London Utara” terbesar: Arsenal vs Tottenham.</p>
+                        <span class="news-date">16 November 2025</span>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="../assets/images/Aset12.webp" alt="News">
+
+                    </div>
+                    <div class="news-content">
+                        <h4 class="news-title">Sang raja telah kembali</h4>
+                        <p class="news-excerpt">Sang raja yaitu Manchester United belum terkalahkan hingga laga minggu ini!</p>
+                        <span class="news-date">16 November 2025</span>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="../assets/images/Aset16.webp" alt="News">
+
+                    </div>
+                    <div class="news-content">
+                        <h4 class="news-title">Analisis: Apakah Haaland striker terbaik di dunia?</h4>
+                        <p class="news-excerpt">Kita melihat rekor-rekor yang bisa dipecahkan pemain Norwegia itu dan menilai bagaimana ia dibandingkan dengan Messi dan Ronaldo.</p>
+                        <span class="news-date">16 November 2025</span>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="../assets/images/Aset3.webp" alt="News">
+
+                    </div>
+                    <div class="news-content">
+                        <h4 class="news-title">Tim Terbaik Pekan Ini Shearer: 'Ballard adalah lambang musim Sunderland'</h4>
+                        <p class="news-excerpt">Sunderland mengambil langkah maju lainnya dalam musim luar biasa mereka dengan hasil luar biasa melawan pemimpin Liga Primer Arsenal.</p>
+                        <span class="news-date">16 November 2025</span>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="../assets/images/Aset3.webp" alt="News">
+
+                    </div>
+                    <div class="news-content">
+                        <h4 class="news-title">Tips Fantasy Premier League Terbaik</h4>
+                        <p class="news-excerpt">Rekomendasi pemain dan strategi untuk memaksimalkan poin Anda...</p>
+                        <span class="news-date">16 November 2025</span>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="../assets/images/Aset3.webp" alt="News">
+
+                    </div>
+                    <div class="news-content">
+                        <h4 class="news-title">Tips Fantasy Premier League Terbaik</h4>
+                        <p class="news-excerpt">Rekomendasi pemain dan strategi untuk memaksimalkan poin Anda...</p>
+                        <span class="news-date">16 November 2025</span>
+                    </div>
+                </article>
+            </div>
         </div>
-    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>More</h4>
+                <ul>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Media</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Premier League. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 
 </html>
