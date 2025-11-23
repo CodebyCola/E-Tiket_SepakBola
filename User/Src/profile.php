@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <a href="index.php" class="btn btn-dark mt-3">Kembali</a>
+    <a href="index.php" class="btn btn-dark mt-3">Back</a>
     <div class="d-flex">
         <?php
         if (isset($_SESSION['role'])) {

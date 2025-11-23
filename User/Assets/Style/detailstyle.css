@@ -8,6 +8,7 @@ body {
 
 /* HEADER */
 .match-header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,6 +22,17 @@ body {
   align-items: center;
   width: 130px;
   text-align: center;
+}
+
+.back-btn {
+  top: 15px;
+  left: 7px;
+  position: absolute;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  margin-bottom: 20px;
+  display: inline-block;
 }
 
 .logo {

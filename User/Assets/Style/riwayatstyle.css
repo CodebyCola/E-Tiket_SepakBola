@@ -1,0 +1,137 @@
+#purchase-history {
+  color: white;
+  margin: 1rem;
+  font-family: "Inter", sans-serif;
+}
+
+.history-container {
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+.history-container h1 {
+  margin-bottom: 3rem;
+}
+
+.back-btn {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.history-card {
+  position: relative;
+  background: #ffffff;
+  color: black;
+  padding: 0;
+  display: flex;
+  min-height: 160px;
+  overflow: hidden;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+}
+
+.history-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 100%;
+  background: linear-gradient(45deg, #ff00ea, #4d00ff);
+  border-radius: 15px 0 0 15px;
+  z-index: 2;
+}
+
+/* Left Items */
+.left-items {
+  width: 220px;
+  padding: 25px 20px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  border-radius: 12px 0 0 12px;
+}
+
+/* Right Items */
+.right-items {
+  position: relative;
+}
+
+.flex-gdata-1 {
+  flex: 1;
+  padding: 25px 25px;
+}
+
+.price {
+  font-size: 26px;
+  font-weight: 700;
+  color: black;
+  text-align: center;
+}
+
+.info-line {
+  font-size: 14px;
+  color: #444;
+  margin: 3px 0;
+}
+
+.info-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+}
+
+.status-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status-badge {
+  background: var(--status-color);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 100px;
+  display: inline-block;
+  text-align: center;
+}
+
+.badge-buy {
+  background: #084298;
+  color: #084298;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.badge-match {
+  text-align: center;
+  background: #8a2be2;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.btn.purchase {
+  position: absolute;
+  top: 13%;
+  right: 25px;
+  padding: 10px;
+  background-color: #cfe2ff;
+  transition: all 0.3s ease;
+}
+
+.btn.purchase:hover {
+  background-color: #cfe2ffa8;
+  color: #827f7f;
+}
