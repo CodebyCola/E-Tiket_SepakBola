@@ -1,7 +1,7 @@
 <?php
 include __DIR__ . "/../Connection/koneksi.php";
 session_start();
-session_destroy();
+// session_destroy();
 
 $sql = $koneksi->prepare("select nama, komentar, rating, tanggal from reviews where status = 'disetujui' limit 3");
 $sql->execute();
@@ -43,6 +43,9 @@ $result = $sql->get_result();
           </li>
           <li class="nav-item">
             <a class="nav-link" href="riwayat.php">History</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tiket.php">Buy Ticket</a>
           </li>
         </ul>
       </div>

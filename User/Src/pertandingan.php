@@ -63,6 +63,9 @@ if ($month && $week) {
                     <li class="nav-item">
                         <a class="nav-link" href="riwayat.php">History</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tiket.php">Buy Ticket</a>
+                    </li>
                 </ul>
             </div>
         </div>
