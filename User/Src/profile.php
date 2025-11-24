@@ -117,7 +117,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="birthdate" class="form-label">Date of Birth</label>
-                                    <input type="date" class="form-control" id="birthdate" name="date" value="<?= !empty($data['tanggal_lahir']) ? date('Y-m-d', strtotime($data['tanggal_lahir'])) : '' ?>"    disabled>
+                                    <input type="date" class="form-control" id="birthdate" name="date" value="<?= !empty($data['tanggal_lahir']) ? date('Y-m-d', strtotime($data['tanggal_lahir'])) : '' ?>" disabled>
                                     <span class="
                                     errors"><?= $errors['date'] ?></span>
                                 </div>
