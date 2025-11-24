@@ -163,6 +163,18 @@ body {
   background: #3b0a58;
   color: #fff;
   outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #ffffff;
+  box-shadow: 0 0 5px rgba(255, 127, 80, 0.5);
+}
+
+.form-group input:hover,
+.form-group select:hover {
+  opacity: 0.9;
 }
 
 .form-group input::placeholder {

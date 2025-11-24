@@ -127,12 +127,12 @@ $matchweek = floor((date("j", strtotime($data['tanggal'])) - 1) / 7) + 1;
 
 				<div class="form-group">
 					<label for="email">Email Address</label>
-					<input type="email" id="email" name="email" required>
+					<input type="email" id="email" name="email" placeholder="Enter your email here..." required>
 				</div>
 
 				<div class="form-group">
 					<label for="telp">Phone Number</label>
-					<input type="text" id="telp" name="telp" required>
+					<input type="text" id="telp" name="telp" placeholder="Enter your phone here..." required>
 				</div>
 
 				<div class="form-group">
