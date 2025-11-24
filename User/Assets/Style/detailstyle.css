@@ -25,14 +25,22 @@ body {
 }
 
 .back-btn {
-  top: 15px;
-  left: 7px;
+  top: 30px;
+  left: 20px;
   position: absolute;
   color: #fff;
+  background: black;
+  padding: 0.5rem;
+  border-radius: 5px;
   text-decoration: none;
   font-size: 16px;
   margin-bottom: 20px;
   display: inline-block;
+  transition: all .3s ease-in-out;
+}
+
+.back-btn:hover {
+  opacity: 0.8;
 }
 
 .logo {

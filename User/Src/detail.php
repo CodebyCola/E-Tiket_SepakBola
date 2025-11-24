@@ -60,7 +60,7 @@ $isFinished = $match['skor_home'] !== null && $match['skor_away'] !== null;
 
 <body>
   <div class="match-header">
-    <a href="pertandingan.php" class="back-btn">X</a>
+    <a href="pertandingan.php" class="back-btn">Back</a>
 
     <div class="team-box home">
       <div class="logo">
@@ -105,7 +105,7 @@ $isFinished = $match['skor_home'] !== null && $match['skor_away'] !== null;
 
   <?php if ($match['stok_tiket'] > 0): ?>
     <div class="ticket-section">
-      <a href="pesan_tiket.php?id_match=<?= $id ?>" class="ticket-btn">
+      <a href="belitiket.php?id_match=<?= $id ?>" class="ticket-btn">
         Pesan Tiket (<?= $match['stok_tiket'] ?> tersedia)
       </a>
     </div>
