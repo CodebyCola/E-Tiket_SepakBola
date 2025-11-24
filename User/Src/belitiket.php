@@ -44,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	$email = $_POST['email'];
 	$tlp = $_POST['telp'];
 	$sisastok = $data['stok_tiket'] - $jumlah;
+
 	$sql = $koneksi->prepare("INSERT INTO pembelian (namaLengkap, email, no_hp, jumlah_tiket, total_harga, id_match, id_user) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
 	$sql->bind_param("sssiiii", $nama, $email, $tlp, $jumlah, $total, $id_match, $id_user);
