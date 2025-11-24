@@ -126,6 +126,37 @@ $result = $stmt->get_result();
         <?php endwhile; ?>
 
     </section>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>More</h4>
+                <ul>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Media</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Premier League. All rights reserved.</p>
+        </div>
+    </footer>
 
 
     <script src="../Assets/Script/ticketSC.js"></script>
