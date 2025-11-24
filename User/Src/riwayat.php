@@ -117,8 +117,8 @@ if (!isset($_SESSION['username'])) {
                                 </span>
                             </div>
 
-                            <a href="detail_tiket.php?id=<?= $data['id_pembelian'] ?>" class="btn">
-                                Lihat Tiket
+                            <a href="cancelpayment.php?id=<?= $data['id_pembelian'] ?>" onclick="return confirm('Do you want to cancel the payment?') " class="btn cancel">
+                                Cancel Payment
                             </a>
                         </div>
 

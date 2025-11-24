@@ -135,3 +135,13 @@
   background-color: #cfe2ffa8;
   color: #827f7f;
 }
+
+.btn.cancel {
+  color: rgba(0, 0, 0, 0.607);
+  transition: all .3s linear;
+}
+
+.btn.cancel:hover {
+  color: black;
+  transform: translateY(-1px);
+}
