@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  height: 600px;
+  height: 700px;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("../images/Aset10.jpg");
   background-size: cover;
@@ -96,6 +96,7 @@
   transform: translateY(0.5px);
 }
 
+
 .navbar-brand {
   position: sticky;
   font-weight: bold;
@@ -153,11 +154,6 @@
   text-align: left;
 }
 
-.mb-4 {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 4rem;
-  color: white;
-}
 
 /* Styling Fitur Section */
 #Fiturs {

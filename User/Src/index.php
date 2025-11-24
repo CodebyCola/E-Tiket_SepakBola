@@ -21,7 +21,7 @@ $result = $sql->get_result();
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-secondary">
+  <nav class="navbar navbar-expand-lg bg-body-secondary position-sticky" style="width: 100%; z-index: 100; top:0;">
     <div class="container-fluid">
       <a class="navbar-brand d-flex align-items-center" href="#">
         <img src="../Assets/images/priemer-league-icon.jpg" alt="logo" width="120" height="100">
