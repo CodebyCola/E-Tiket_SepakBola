@@ -149,8 +149,7 @@ if ($month && $week) {
                                 <div class="vs">
                                     <?php
                                     $isFinished =
-                                        (!is_null($data['skor_home']) && !is_null($data['skor_away']))
-                                        || $data['stok_tiket'] == 0;
+                                        (!is_null($data['skor_home']) && !is_null($data['skor_away']));
 
                                     if ($isFinished) {
                                         echo $data['skor_home'] . " - " . $data['skor_away'];

@@ -72,7 +72,7 @@ if (!isset($_SESSION['username'])) {
                         --away-color: <?= $data['away_color'] ?>; ">
 
                         <div class="price mb-4">Rp<?= number_format($data['total_harga'], 0, ',', '.') ?></div>
-                        <span class="badge badge-match" style="color: white;">🏆 MATCH: <?= date("d M y", strtotime($data['tanggal_beli'])) ?></span>
+                        <span class="badge badge-match" style="color: white;">🏆 MATCH: <?= date("d M y", strtotime($data['tanggal'])) ?></span>
                     </div>
 
                     <div class="right-items flex-gdata-1">
@@ -98,7 +98,7 @@ if (!isset($_SESSION['username'])) {
 
                             <div>
                                 <div class="info-title">DATE</div>
-                                <span class="badge badge-buy">Purchased: <?= date("d M y", strtotime($data['tanggal'])) ?></span>
+                                <span class="badge badge-buy">Purchased: <?= date("d M y", strtotime($data['tanggal_beli'])) ?></span>
                             </div>
 
                             <div class="status-wrapper">
