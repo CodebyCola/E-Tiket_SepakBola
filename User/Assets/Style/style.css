@@ -192,9 +192,15 @@ body {
   color: white;
 }
 
+.team-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .team-logo {
   width: 60px;
-  object-fit: contain;
+  height: 60px;
   border-radius: 15px;
   margin: 0 auto 0.5rem;
   display: flex;
@@ -203,14 +209,11 @@ body {
   font-size: 1.5rem;
 }
 
-.team-logo img {
-  height: auto;
-  max-width: 60px;
-}
-
 .team-name {
   font-weight: 700;
   font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .vs {

@@ -25,7 +25,7 @@ $matchDateTime = $match['tanggal'] . "T" . $match['waktu'];
 echo "<!-- DEBUG: $matchDateTime -->";
 ?>
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
