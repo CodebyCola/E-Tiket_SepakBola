@@ -77,7 +77,8 @@ $matchweek = floor((date("j", strtotime($data['tanggal'])) - 1) / 7) + 1;
 
 <body>
 	<section id="detail-ticket">
-		<div class="left-items">
+		<div class="ticket-form-container">
+
 			<div class="match-card" style="--primary-color: <?= $data['primary_color'] ?>; 
             --secondary-color: <?= $data['secondary_color'] ?>;">
 				<div class="match-header">
@@ -108,48 +109,51 @@ $matchweek = floor((date("j", strtotime($data['tanggal'])) - 1) / 7) + 1;
 					</div>
 				</div>
 				<div class="match-detail">
-					<p>Matchweek <?= $matchweek ?></p>
-					<p><?= date("d M Y", strtotime($data['tanggal'])) ?> • <?= $data['lokasi']; ?></p>
-					<p style="font-size: 12px;"><?= $data['home_name'] ?> vs <?= $data['away_name'] ?> | Season 2025/2026 | Premier League</p>
-
-					<a href="pertandingan.php"><i class="bi bi-list-ul"></i> All Matches</a>
+					<div>
+						<p>Matchweek <?= $matchweek ?></p>
+						<p><?= date("d M Y", strtotime($data['tanggal'])) ?> • <?= $data['lokasi']; ?></p>
+						<p style="font-size: 12px;"><?= $data['home_name'] ?> vs <?= $data['away_name'] ?> | Season 2025/2026 | Premier League</p>
+					</div>
+					<div>
+						<a href="pertandingan.php"><i class="bi bi-list-ul"></i> All Matches</a>
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="right-items">
-			<form action="" method="POST">
-				<h2 class="form-title">Purchase Ticket</h2>
-				<a href="tiket.php" class="btn-back">Back</a>
-				<div class="form-group">
-					<label for="nama">Full Name</label>
-					<input type="text" id="nama" name="nama" required placeholder="Enter your fullname here...">
-				</div>
+			<div class="right-items">
+				<form action="" method="POST">
+					<h2 class="form-title">Purchase Ticket</h2>
+					<a href="tiket.php" class="btn-back">Back</a>
+					<div class="form-group">
+						<label for="nama">Full Name</label>
+						<input type="text" id="nama" name="nama" required placeholder="Enter your fullname here...">
+					</div>
 
-				<div class="form-group">
-					<label for="email">Email Address</label>
-					<input type="email" id="email" name="email" placeholder="Enter your email here..." required>
-				</div>
+					<div class="form-group">
+						<label for="email">Email Address</label>
+						<input type="email" id="email" name="email" placeholder="Enter your email here..." required>
+					</div>
 
-				<div class="form-group">
-					<label for="telp">Phone Number</label>
-					<input type="text" id="telp" name="telp" placeholder="Enter your phone here..." required>
-				</div>
+					<div class="form-group">
+						<label for="telp">Phone Number</label>
+						<input type="text" id="telp" name="telp" placeholder="Enter your phone here..." required>
+					</div>
 
-				<div class="form-group">
-					<label for="jumlah">Ticket Quantity</label>
-					<input type="number" id="jumlah" name="jumlah" min="1" max="<?= $data['stok_tiket'] ?>" value="1">
-				</div>
+					<div class="form-group">
+						<label for="jumlah">Ticket Quantity</label>
+						<input type="number" id="jumlah" name="jumlah" min="1" max="<?= $data['stok_tiket'] ?>" value="1">
+					</div>
 
-				<div class="total-box">
-					<p>Total Price</p>
-					<span id="total">Rp <?= number_format($data['harga_tiket'], 0, ',', '.') ?></span>
-				</div>
+					<div class="total-box">
+						<p>Total Price</p>
+						<span id="total">Rp <?= number_format($data['harga_tiket'], 0, ',', '.') ?></span>
+					</div>
 
-				<input type="hidden" name="id_match" value="<?= $id ?>">
-				<input type="hidden" name="harga" id="harga" value="<?= $data['harga_tiket'] ?>">
-				<button type="submit" class="btn-pay">Confirm & Pay</button>
-			</form>
+					<input type="hidden" name="id_match" value="<?= $id ?>">
+					<input type="hidden" name="harga" id="harga" value="<?= $data['harga_tiket'] ?>">
+					<button type="submit" class="btn-pay">Confirm & Pay</button>
+				</form>
+			</div>
 		</div>
 	</section>
 

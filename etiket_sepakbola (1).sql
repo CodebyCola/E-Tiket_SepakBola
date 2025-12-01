@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Nov 2025 pada 13.36
+-- Waktu pembuatan: 30 Nov 2025 pada 18.00
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -46,7 +46,7 @@ CREATE TABLE `pembelian` (
 
 INSERT INTO `pembelian` (`id_pembelian`, `namaLengkap`, `email`, `no_hp`, `jumlah_tiket`, `total_harga`, `tanggal_beli`, `status`, `id_match`, `id_user`) VALUES
 (3, 'Nicolaus Narindra Lianto', 'nicolaus@gmail.com', '089694053081', 2, 640000, '2025-11-24', 'Paid', 16, 2),
-(4, 'Nicolaus Narindra Lianto', 'nicolaus@gmail.com', '089694053081', 4, 1120000, '2025-11-24', 'Pending', 17, 2);
+(4, 'Nicolaus Narindra Lianto', 'nicolaus@gmail.com', '089694053081', 4, 1120000, '2025-11-24', 'Paid', 17, 2);
 
 -- --------------------------------------------------------
 
@@ -87,21 +87,21 @@ INSERT INTO `pertandingan` (`id_match`, `tim_home`, `tim_away`, `tanggal`, `wakt
 (13, 2, 5, '2025-02-10', '21:00:00', 'Stamford Bridge', 255000, 0, 0, 2),
 (14, 3, 6, '2025-02-12', '19:30:00', 'Anfield', 280000, 0, 4, 3),
 (15, 5, 3, '2025-02-20', '20:00:00', 'Etihad Stadium', 330000, 0, 2, 0),
-(16, 4, 1, '2025-03-10', '20:00:00', 'Emirates Stadium', 320000, 198, NULL, NULL),
-(17, 6, 2, '2025-03-12', '19:00:00', 'Tottenham Stadium', 280000, 146, NULL, NULL),
-(18, 3, 5, '2025-03-15', '21:00:00', 'Anfield', 330000, 180, NULL, NULL),
-(19, 1, 4, '2025-03-19', '20:00:00', 'Old Trafford', 300000, 170, NULL, NULL),
-(20, 2, 6, '2025-03-22', '19:30:00', 'Stamford Bridge', 260000, 160, NULL, NULL),
-(21, 6, 5, '2025-03-25', '21:00:00', 'Tottenham Stadium', 310000, 180, NULL, NULL),
-(22, 5, 4, '2025-03-28', '20:00:00', 'Etihad Stadium', 350000, 200, NULL, NULL),
-(23, 3, 2, '2025-04-02', '19:00:00', 'Anfield', 290000, 190, NULL, NULL),
-(24, 4, 3, '2025-04-05', '21:00:00', 'Emirates Stadium', 340000, 175, NULL, NULL),
-(25, 2, 1, '2025-04-08', '20:00:00', 'Stamford Bridge', 270000, 155, NULL, NULL),
-(26, 1, 6, '2025-04-12', '19:00:00', 'Old Trafford', 310000, 180, NULL, NULL),
-(27, 5, 3, '2025-04-15', '21:00:00', 'Etihad Stadium', 360000, 190, NULL, NULL),
-(28, 6, 4, '2025-04-18', '20:00:00', 'Tottenham Stadium', 300000, 140, NULL, NULL),
-(29, 4, 2, '2025-04-20', '19:00:00', 'Emirates Stadium', 320000, 160, NULL, NULL),
-(30, 3, 1, '2025-04-25', '20:00:00', 'Anfield', 330000, 200, NULL, NULL);
+(16, 4, 1, '2025-12-05', '20:00:00', 'Emirates Stadium', 320000, 150, NULL, NULL),
+(17, 6, 2, '2025-12-05', '23:00:00', 'Tottenham Stadium', 280000, 146, NULL, NULL),
+(18, 3, 5, '2025-12-06', '19:00:00', 'Anfield', 330000, 180, NULL, NULL),
+(19, 1, 4, '2025-12-07', '23:00:00', 'Old Trafford', 300000, 170, NULL, NULL),
+(20, 2, 6, '2025-12-08', '19:30:00', 'Stamford Bridge', 260000, 160, NULL, NULL),
+(21, 6, 5, '2025-12-09', '21:00:00', 'Tottenham Stadium', 310000, 180, NULL, NULL),
+(22, 5, 4, '2025-12-10', '20:00:00', 'Etihad Stadium', 350000, 200, NULL, NULL),
+(23, 3, 2, '2025-12-11', '19:00:00', 'Anfield', 290000, 190, NULL, NULL),
+(24, 4, 3, '2025-12-15', '21:00:00', 'Emirates Stadium', 340000, 175, NULL, NULL),
+(25, 2, 1, '2025-12-16', '20:00:00', 'Stamford Bridge', 270000, 155, NULL, NULL),
+(26, 1, 6, '2025-12-17', '19:00:00', 'Old Trafford', 310000, 180, NULL, NULL),
+(27, 5, 3, '2025-12-18', '21:00:00', 'Etihad Stadium', 360000, 190, NULL, NULL),
+(28, 6, 4, '2025-12-23', '20:00:00', 'Tottenham Stadium', 300000, 140, NULL, NULL),
+(29, 4, 2, '2025-12-24', '19:00:00', 'Emirates Stadium', 320000, 160, NULL, NULL),
+(30, 3, 1, '2025-12-25', '20:00:00', 'Anfield', 330000, 200, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -176,12 +176,12 @@ CREATE TABLE `team_stats` (
 --
 
 INSERT INTO `team_stats` (`id_stats`, `id_team`, `league_position`, `played`, `wins`, `draws`, `losses`, `goals`, `points`) VALUES
-(1, 1, 7, 4, 1, 1, 2, 4, 4),
-(2, 2, 10, 5, 0, 2, 3, 4, 2),
-(3, 3, 3, 6, 3, 1, 2, 12, 10),
+(1, 1, 5, 4, 1, 1, 2, 4, 4),
+(2, 2, 6, 5, 0, 2, 3, 4, 2),
+(3, 3, 2, 6, 3, 1, 2, 12, 10),
 (4, 4, 1, 5, 3, 2, 0, 10, 11),
-(5, 5, 2, 5, 3, 0, 2, 7, 9),
-(6, 6, 5, 5, 2, 0, 3, 9, 6);
+(5, 5, 3, 5, 3, 0, 2, 7, 9),
+(6, 6, 4, 5, 2, 0, 3, 9, 6);
 
 -- --------------------------------------------------------
 
@@ -265,7 +265,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `pembelian`
 --
 ALTER TABLE `pembelian`
-  MODIFY `id_pembelian` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pembelian` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `pertandingan`

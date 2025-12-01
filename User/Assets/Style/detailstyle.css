@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: #1a0520;
+  background: #101522;
   color: white;
   font-family: Arial, sans-serif;
 }
@@ -12,8 +12,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 50px;
-  background: #3b0a58;
+  padding: 25px 100px;
+  background: #1c2a4a;
+  border: 1px solid #0f1422;
 }
 
 .team-box {
@@ -25,18 +26,18 @@ body {
 }
 
 .back-btn {
-  top: 30px;
+  top: 35px;
   left: 20px;
   position: absolute;
   color: #fff;
-  background: black;
   padding: 0.5rem;
   border-radius: 5px;
   text-decoration: none;
   font-size: 16px;
   margin-bottom: 20px;
   display: inline-block;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  
 }
 
 .back-btn:hover {
@@ -68,7 +69,8 @@ body {
 }
 
 .match-time {
-  background: #4a0d80;
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 15px 35px;
   border-radius: 15px;
   font-size: 24px;
@@ -116,7 +118,7 @@ body {
 
 .ticket-btn {
   display: inline-block;
-  background: #ffcc00;
+  background: #4f46e5;
   color: #1a0520;
   font-weight: bold;
   padding: 12px 28px;
@@ -127,16 +129,18 @@ body {
 }
 
 .ticket-btn:hover {
-  background: #ffe066;
+  background: #4338ca;
 }
 
 /* STATS */
 .stats-container {
   width: 85%;
   margin: 50px auto;
-  background: #2b063a;
+  background: #1c2a4a;
   padding: 25px 40px;
   border-radius: 15px;
+  border: 1px solid #0f1422;
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.2);
 }
 
 .stats-header-flex {
