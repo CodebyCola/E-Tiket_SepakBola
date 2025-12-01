@@ -58,7 +58,7 @@ if (!isset($_SESSION['username'])) {
 
 </head>
 
-<body style="background-color: #150021;">
+<body>
     <section id="purchase-history">
         <a href="index.php" class="back-btn">Back</a>
         <div class="history-container">
