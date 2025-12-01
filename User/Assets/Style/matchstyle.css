@@ -1,190 +1,301 @@
-/* Header */
-#matches h1,
-#matches h2 {
-  font-family: "Inter", sans-serif;
-  font-weight: 700;
-  color: white;
-  text-align: left;
-  padding: 2rem 2rem;
-  margin: 0 1rem;
-  border-radius: 10px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-gutter: stable;
 }
 
-/* End */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(
+      ellipse at 50%,
+      rgba(102, 126, 234, 0.15) 0%,
+      rgba(0, 0, 0, 0.71) 50%
+    ),
+    linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
 
-/* Matches */
+/* Matches Section */
+.m-container {
+  background-color: #2f3343b5;
+  padding: 2rem;
+  border-radius: 20px;
+  max-height: 100vh;
+  min-height: 80vh;
+  overflow: auto;
+}
 
 #matches {
-  background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
-  height: 100vh;
-  padding-top: 2rem;
-}
-
-.matches-container {
-  background: linear-gradient(90deg, #2a0845, #6441a5);
-  padding: 2rem 2rem;
-  margin: 0.5rem 1rem;
-}
-
-.matches-container .btn {
-  transition: background-color 0.25s ease, transform 0.2s ease-in-out;
-}
-
-.matches-container .btn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  transform: scale(0.95);
-  cursor: pointer;
-}
-
-.btn-check:checked + label {
-  background-color: #007bff !important;
-  color: white !important;
-  transform: scale(0.95);
+  max-width: 1400px;
+  margin: 10rem auto;
 }
 
 .upper-matches {
-  background: linear-gradient(90deg, #2a0845, #6441a5);
   display: flex;
-  margin: 0 1rem;
-  border-radius: 8px;
-  gap: 68rem;
+  justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+}
+
+.upper-matches h1 {
+  color: white;
+  font-size: 3rem;
+  font-weight: 900;
+  margin: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #667eea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .drpdwn {
-  background-color: transparent;
-  height: 100%;
-  font-size: larger;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(102, 126, 234, 0.3);
   color: white;
-  padding: 6px;
-  border-radius: 4px;
-  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
   appearance: none;
-  transition: 0.3s ease-in-out;
+  padding-right: 3rem;
 }
 
 .drpdwn:hover {
-  cursor: pointer;
-  opacity: 0.9;
-}
-
-.drpdwn:focus {
-  outline: none;
-  box-shadow: none;
+  background: rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.5);
 }
 
 .drpdwn option {
-  background-color: #283c50;
+  background: #1a1a1a;
   color: white;
+  cursor: pointer;
 }
 
-.match-card {
-  color: white;
+/* Matchweek Buttons */
+.matches-container {
+  margin-bottom: 1rem;
+  width: 70%;
 }
 
+.btn-group {
+  flex-wrap: nowrap;
+  gap: 1rem !important;
+}
+
+.btn-group .btn-check:checked + .btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border: none !important;
+  color: white !important;
+}
+
+.btn-group .btn {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  border-radius: 20px !important;
+  padding: 1rem 1rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  white-space: nowrap;
+}
+
+.btn-group .btn:hover {
+  background: rgba(102, 126, 234, 0.2) !important;
+  border-color: rgba(102, 126, 234, 0.5) !important;
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+/* Match Cards */
 #matches-list {
-  height: 55vh;
-  overflow-y: auto;
-  background: linear-gradient(90deg, #2a0845, #6441a5);
-  margin: 0 1rem;
+  display: grid;
+  gap: 1.5rem;
 }
 
-#matches-list a{
+#matches-list a {
   text-decoration: none;
 }
 
 .match-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 16px 24px;
-  color: white;
-  font-family: "Bebas Neue", sans-serif;
-}
-
-.match-left {
-  width: 120px;
-  text-align: left;
-}
-
-.match-left .date {
-  font-size: 20px;
-  opacity: 0.9;
-}
-
-.match-left .status {
-  font-size: 18px;
-  opacity: 0.7;
-}
-
-.match-center {
-  flex: 1;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  gap: 40px;
-  padding-bottom: 15px;
-}
-.match-center .club {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 220px;
-  gap: 10px;
-  text-align: center;
-}
-
-.match-center .club:first-child {
-  justify-content: flex-end;
-}
-
-.match-center .club:last-child {
-  justify-content: flex-start;
-}
-
-.match-center .team {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.match-center img {
-  width: 36px;
-  height: 36px;
-}
-
-.match-center .vs {
-  width: 40px;
-  text-align: center;
-  font-size: 22px;
-}
-
-.match-center .name {
-  font-size: 20px;
-  max-width: 140px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.match-center .score {
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.match-right {
-  width: 200px;
-  text-align: right;
-}
-
-.match-right .stadium {
-  font-size: 16px;
-  opacity: 0.8;
+  gap: 2rem;
+  transition: all 0.4s ease;
 }
 
 .match-card:hover {
-  background: #3b0048;
-  cursor: pointer;
-  transition: 0.2s;
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(102, 126, 234, 0.5);
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.2);
+}
+
+.match-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 120px;
+}
+
+.match-left .date {
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.match-left .time {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+.match-center {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 3rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.club {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 180px;
+}
+
+.club:last-child {
+  flex-direction: row-reverse;
+}
+
+.club img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 8px;
+}
+
+.club .name {
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 200px;
+}
+
+.vs {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 900;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  min-width: 80px;
+  text-align: center;
+}
+
+.match-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  min-width: 150px;
+}
+
+.match-right .price {
+  color: #667eea;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.match-right .stadium {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+/* Rangkings */
+#rankings {
+  width: 100%;
+  height: 100vh;
+  background: rgba(60, 75, 138, 0.2);
+  border-radius: 20px;
+}
+
+.container {
+  padding: 2rem;
+  border-radius: 20px;
+  max-height: 100vh;
+  min-height: 80vh;
+  overflow: auto;
+}
+
+.rankings-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.5rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ffffff 30%, #a3bffa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.standings-table {
+  width: 100%;
+  padding: 0;
+  max-width: 900px;
+  margin: 40px auto;
+  border-collapse: collapse;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.5);
+  border-radius: 12px;
+  border: none;
+}
+
+.standings-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 101%) !important;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  width: 100%;
+}
+
+.standings-table th,
+.standings-table td {
+  padding: 14px 12px;
+  margin: 0;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.standings-table th {
+  font-weight: 600;
+}
+
+.standings-table tbody tr:hover {
+  background-color: #f8f9fa;
+  transition: all 0.2s;
 }

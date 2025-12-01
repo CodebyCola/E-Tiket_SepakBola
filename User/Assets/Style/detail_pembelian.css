@@ -1,0 +1,80 @@
+:root {
+  --primary: #9b4dff;
+  --dark: #150021;
+  --light-purple: #6b2dd9;
+}
+body {
+  background: linear-gradient(135deg, #150021 0%, #1a0033 100%);
+  color: #fff;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+.ticket-card {
+  background: rgb(255, 255, 255);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(155, 77, 255, 0.3);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+.header-match {
+  background: linear-gradient(90deg, var(--home-color), var(--away-color));
+  padding: 2rem;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+.team-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+.vs {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin: 0 1.5rem;
+}
+.qr-section {
+  background: white;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 16px;
+  margin: 2rem auto;
+  max-width: 280px;
+}
+.status-badge {
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.paid {
+  background: #1ead4b;
+  color: white;
+}
+.pending {
+  background: #287eff;
+  color: white;
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.info-row:last-child {
+  border-bottom: none;
+}
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.2rem;
+}

@@ -10,26 +10,26 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News</title>
+    <link rel="icon" type="image/x-icon" href="../Assets/images/logo.jpg">
     <link rel="stylesheet" href="../Assets/Style/berita.css">
-    <link rel="stylesheet" href="../Assets/Style/style.css">
+    <link rel="stylesheet" href="../Assets/Style/navbarstyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-secondary position-sticky" style="width: 100%; z-index: 100; top:0;">
+    <nav class="navbar navbar-expand-lg position-fixed" style="top:0; z-index: 1000; width: 100%;">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <div class="logo-container"></div>
-                <img src="../Assets/images/priemer-league-icon.jpg" alt="logo" width="120" height="100">
+                <img src="../Assets/images/logo.jpg" alt="logo" width="100" height="90">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link active" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="pertandingan.php">Matches</a>
@@ -42,29 +42,22 @@ session_start();
                     </li>
                 </ul>
             </div>
-        </div>
-        <div class="profile-menu d-flex">
-            <?php
-            if (isset($_SESSION['role'])) {
-            ?>
-                <div class="profile-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <?= $_SESSION['username'] ?>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="profile.php">My Profile</a></li>
-                        <li><a class="dropdown-item" href="riwayat.php">Purchase History</a></li>
-                        <li><a class="dropdown-item" href="Auth/logout.php">Logout</a></li>
-                    </ul>
-                </div>
-
-            <?php
-            } else {
-            ?>
-                <a href="Auth/login.php" class="btn btn-dark login-btn">Login</a>
-            <?php
-            }
-            ?>
+            <div class="profile-menu d-flex">
+                <?php if (isset($_SESSION['role'])) { ?>
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <?= $_SESSION['username'] ?>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="profile.php">My Profile</a></li>
+                            <li><a class="dropdown-item" href="riwayat.php">Purchase History</a></li>
+                            <li><a class="dropdown-item" href="Auth/logout.php">Logout</a></li>
+                        </ul>
+                    </div>
+                <?php } else { ?>
+                    <a href="Auth/login.php" class="btn login-btn">Login</a>
+                <?php } ?>
+            </div>
         </div>
     </nav>
 

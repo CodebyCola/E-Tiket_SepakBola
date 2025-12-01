@@ -1,0 +1,153 @@
+/* Navigation */
+nav.navbar {
+  background: rgba(0, 0, 0, 0.9) !important;
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: none !important;
+}
+
+.bg-body-secondary {
+  background-color: transparent !important;
+}
+
+.navbar-brand img {
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+  transform: scale(1.05);
+}
+
+.nav-item .nav-link {
+  color: white !important;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.3rem;
+  margin: 0 1rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-item .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+}
+
+.nav-item .nav-link:hover::after {
+  width: 80%;
+}
+
+.nav-item .nav-link:hover {
+  color: #667eea !important;
+}
+
+.login-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  padding: 0.6rem 1.8rem !important;
+  border-radius: 25px !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  border: none !important;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* Profile */
+.profile-menu {
+  position: relative;
+  text-align: center;
+  padding: 3px 10px 10px 10px;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-family: "Bebas Neue", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.profile-menu .dropdown-toggle {
+  color: white !important;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-right: 2rem;
+}
+
+.profile-menu .dropdown-toggle:hover {
+  color: #667eea !important;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+  content: none !important;
+}
+
+.dropdown-menu {
+  left: auto !important;
+  right: 0 !important;
+  transform: translateX(26%) !important;
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  border-top: 3px solid #667eea;
+  padding: 3rem 5% 1rem;
+  margin-top: 0;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-section ul li a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #667eea;
+  padding-left: 5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #333;
+  color: #999999;
+}

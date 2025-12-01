@@ -117,9 +117,17 @@ if (!isset($_SESSION['username'])) {
                                 </span>
                             </div>
 
-                            <a href="cancelpayment.php?id=<?= $data['id_pembelian'] ?>" onclick="return confirm('Do you want to cancel the payment?') " class="btn cancel">
-                                Cancel Payment
-                            </a>
+                            <?php if ($data['status'] == 'Paid') {
+                            ?>
+                                <a href="detailpembelian.php?id=<?= $data['id_pembelian'] ?>" class="btn cancel">
+                                    See ticket
+                                </a>
+                            <?php } else if ($data['status'] == 'Pending') {
+                            ?>
+                                <a href="cancelpayment.php?id=<?= $data['id_pembelian'] ?>" onclick="return confirm('Do you want to cancel the payment?') " class="btn cancel">
+                                    Cancel Payment
+                                </a>
+                            <?php } ?>
                         </div>
 
                     </div>
