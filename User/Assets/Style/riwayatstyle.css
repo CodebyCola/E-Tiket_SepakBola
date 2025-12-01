@@ -1,3 +1,7 @@
+body {
+  background: #0f1419 !important;
+}
+
 #purchase-history {
   color: white;
   margin: 1rem;
@@ -30,7 +34,7 @@
   min-height: 160px;
   overflow: hidden;
   margin-bottom: 25px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.25);
   border-radius: 15px;
 }
 
@@ -41,7 +45,7 @@
   left: 0;
   width: 7px;
   height: 100%;
-  background: linear-gradient(45deg, #ff00ea, #4d00ff);
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
   border-radius: 15px 0 0 15px;
   z-index: 2;
 }
@@ -107,8 +111,8 @@
 }
 
 .badge-buy {
-  background: #084298;
-  color: #084298;
+  background: #1565c0;
+  color: white;
   padding: 4px 8px;
   border-radius: 6px;
   font-size: 12px;
@@ -116,7 +120,8 @@
 
 .badge-match {
   text-align: center;
-  background: #8a2be2;
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  color: white;
   padding: 4px 8px;
   border-radius: 6px;
   font-size: 12px;
@@ -127,18 +132,19 @@
   top: 13%;
   right: 25px;
   padding: 10px;
-  background-color: #cfe2ff;
+  background-color: #dbeafe;
+  color: #1e3a8a;
   transition: all 0.3s ease;
 }
 
 .btn.purchase:hover {
-  background-color: #cfe2ffa8;
-  color: #827f7f;
+  background-color: #bfdbfe;
+  color: #1e40af;
 }
 
 .btn.cancel {
   color: rgba(0, 0, 0, 0.607);
-  transition: all .3s linear;
+  transition: all 0.3s linear;
 }
 
 .btn.cancel:hover {
