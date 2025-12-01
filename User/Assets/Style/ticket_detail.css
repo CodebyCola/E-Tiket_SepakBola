@@ -166,7 +166,7 @@ body {
 .btn-back {
   position: absolute;
   top: 35px;
-  left: 770px;
+  right: 35px;
   border-radius: 10px;
   text-decoration: none;
   color: #fff;
